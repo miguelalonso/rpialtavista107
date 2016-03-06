@@ -1,0 +1,45 @@
+<h3>Last hour view</h3>
+<table border="1" rules="rows" cellspacing="0" cellpadding="5">
+  <col />
+  <col />
+  <col align="char" char="." />
+  <col align="char" char="." />
+  <col />
+  <col />
+  <col align="char" char="m" />
+  <col align="char" char="m" />
+  <col align="char" char="." />
+  <col align="char" char="," />
+  <tr>
+    <th rowspan="2">Time</th>
+    <th rowspan="2">Temp</th>
+    <th rowspan="2">Feels like</th>
+    <th rowspan="2">Humidity</th>
+    <th colspan="3">Wind</th>
+    <th rowspan="2">Rain</th>
+    <th rowspan="2">Pressure</th>
+  </tr>
+  <tr>
+    <th>dir</th>
+    <th>ave</th>
+    <th>gust</th>
+  </tr>
+#raw#
+#timezone local#
+#roundtime True#
+#jump -1#
+#loop 12#
+<tr>
+<td>#idx "%H:%M <small>%Z:</small>"#</td>
+<td>#temp_out "%.1f<small>°C</small>" "-"#</td>
+<td>#calc "apparent_temp(data['temp_out'], data['hum_out'], data['wind_ave'])" "%.1f <small>&deg;C</small>"#</td>
+<td>#hum_out "%d<small>%%</small>"#</td>
+<td>#wind_dir "%s " "-" "winddir_text(x)"#</td>
+<td>#wind_ave "%.0f <small>mph</small>" "-" "wind_mph(x)"#</td>
+<td>#wind_gust "%.0f <small>mph</small>" "" "wind_mph(x)"#</td>
+<td>#calc "data['rain'] - prevdata['rain']" "%.1f <small>mm</small>"#</td>
+<td>#rel_pressure "%.0f <small>hPa</small>"#</td>
+</tr>
+#jump -1#
+#endloop#
+</table>

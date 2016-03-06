@@ -1,0 +1,8 @@
+#hourly#
+#timezone local#
+#roundtime True#
+#loop 12#
+#calc "(None, Zambretti(params, data))[data['idx'].hour == 8]" "<p>%s.<br />"#
+#calc "(None, data['idx'])[data['idx'].hour == 8]" "<span>computed at %H:%M %Z: </span></p>"#
+#jump -1#
+#endloop#
