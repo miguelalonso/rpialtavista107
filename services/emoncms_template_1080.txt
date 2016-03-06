@@ -1,0 +1,33 @@
+#! pywws - Python software for USB Wireless Weather Stations                   $
+#! http://github.com/jim-easterbrook/pywws                                     $
+#! Copyright (C) 2008-13  Jim Easterbrook  jim@jim-easterbrook.me.uk           $
+#!                                                                             $
+#! This program is free software; you can redistribute it and/or               $
+#! modify it under the terms of the GNU General Public License                 $
+#! as published by the Free Software Foundation; either version 2              $
+#! of the License, or (at your option) any later version.                      $
+#!                                                                             $
+#! This program is distributed in the hope that it will be useful,             $
+#! but WITHOUT ANY WARRANTY; without even the implied warranty of              $
+#! MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the               $
+#! GNU General Public License for more details.                                $
+#!                                                                             $
+#! You should have received a copy of the GNU General Public License           $
+#! along with this program; if not, write to the Free Software                 $
+#! Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, U$
+#live#
+{
+'json' : '{temp_out:#temp_out "%.1f"#,\
+wind_dir:#wind_dir "%0f"#,\
+wind_ave:#wind_ave "%.1f"#,\
+wind_gust:#wind_gust "%.1f"#,\
+rel_pressure:#rel_pressure "%.2f"#,\
+abs_pressure:#abs_pressure "%.2f"#,\
+rain:#rain "%.1f"#,\
+rain_hour:#calc 'rain_hour(data)' "%.1f"#,\
+rain_day:#calc 'rain_day(data)' "%.1f"#,\
+dew_point:#calc "temp_f(dew_point(data['temp_out'],data['hum_out']))" "%.1f"#,\
+temp_in:#temp_in "%.1f"#,\
+hum_in:#hum_in "%.1f"#,\
+hum_out:#hum_out "%d"#}',
+}
